@@ -1,9 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
+import { FaArrowLeftLong, FaArrowRightLong } from 'react-icons/fa6';
 import useAxiosCommon from '../../hooks/useAxiosCommon';
 import Product from '../Product/Product';
-import { FaArrowLeftLong, FaArrowRightLong } from 'react-icons/fa6';
-import axios from 'axios';
 
 const Products = () => {
     const [itemsPerPage] = useState(9);
@@ -25,13 +24,13 @@ const Products = () => {
         getData();
     }, [currentPage, filter, itemsPerPage, sort])
     const getData = async () => {
-        const { data } = await axios(`${import.meta.env.VITE_API_URL}/all-books?page=${currentPage}&size=${itemsPerPage}&filter=${filter}&sort=${sort}`)
+        const { data } = await axiosCommon.get(`/all-pens?page=${currentPage}&size=${itemsPerPage}&filter=${filter}&sort=${sort}`)
         setBooks(data);
     }
 
     useEffect(() => {
         const getCount = async () => {
-            const { data } = await axios(`${import.meta.env.VITE_API_URL}/pens-count?filter=${filter}`)
+            const { data } = await axiosCommon.get(`/pens-count?filter=${filter}`)
             setCount(data.count);
         }
         getCount();
@@ -49,6 +48,44 @@ const Products = () => {
     return (
         <>
             <h2 className='text-2xl font-bold text-center py-6'>Total Products: {pens?.length}</h2>
+
+            <div className='flex flex-col md:flex-row justify-center items-center gap-5 mb-6'>
+                <div>
+                    <select
+                        onChange={e => {
+                            setFilter(e.target.value)
+                            setCurrentPage(1)
+                        }}
+                        value={filter}
+                        name='category'
+                        id='category'
+                        className='border p-4 rounded-lg'
+                    >
+                        <option value=''>Filter By Category</option>
+                        <option value='Novel'>Novel</option>
+                        <option value='Thriller'>Thriller</option>
+                        <option value='History'>History</option>
+                        <option value='Sci-Fi'>Sci-Fi</option>
+                    </select>
+                </div>
+                <div>
+                    <select
+                        onChange={e => {
+                            setSort(e.target.value)
+                            setCurrentPage(1)
+                        }}
+                        value={sort}
+                        name='sort'
+                        id='sort'
+                        className='border p-4 rounded-md'
+                    >
+                        <option value=''>Sort by Rating</option>
+                        <option value='descending'>Descending Order</option>
+                        <option value='ascending'>Ascending Order</option>
+                    </select>
+                </div>
+            </div>
+
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
                 {
                     pens?.slice(0, 6).map((pen, idx) => <Product key={idx} pen={pen} />)
@@ -86,10 +123,6 @@ const Products = () => {
                     </div>
                 </button>
             </div>
-            {/* <div className='flex justify-between pt-6 mb-10'>
-                <button className='btn btn-primary'>Prev</button>
-                <button className='btn btn-primary'>Next</button>
-            </div> */}
         </>
     );
 };

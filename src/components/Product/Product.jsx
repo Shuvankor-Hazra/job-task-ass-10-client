@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Product = ({ pen }) => {
-    const { name, image, desc, price, category, ratings, creation_date_time } = pen;
+    const { name, brand, image, desc, price, category, ratings, creation_date_time } = pen;
     return (
         <>
             <div className="card bg-base-300 border-2 min-h-[600px] p-6 abcd">
@@ -9,8 +9,9 @@ const Product = ({ pen }) => {
                     <img className='w-full hover:scale-110 transition-all' src={image} />
                 </figure>
                 <div className="flex flex-col gap-2">
-                    <h2 className="text-2xl font-semibold mt-3">{name}</h2>
-                    <p className='min-h-12'>{desc}</p>
+                    <h2 className="text-2xl font-bold mt-3">{name}</h2>
+                    <h2 className="text-xl font-bold">Brand: {brand}</h2>
+                    <p className='min-h-8'>{desc}</p>
                     <div className='font-semibold'>
                         <p>Price: $ {price}</p>
                         <p>Category: {category}</p>
