@@ -38,16 +38,6 @@ const Products = () => {
     })
 
 
-    // useEffect(() => {
-    //     const getCount = async () => {
-    //         const { data } = await axiosCommon.get(`/pens-count?filter=${filter}`)
-    //         setCount(data.count);
-    //     }
-    //     getCount();
-    // }, [filter])
-    // const numberOfPages = Math.ceil(pens.length / size)
-    // const pages = [...Array(numberOfPages).keys()].map(e => e + 1)
-
     const pens = data?.pens || [];
     const totalPages = data?.totalPages || 1;
     const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
@@ -60,7 +50,7 @@ const Products = () => {
     return (
         <>
             <h2 className='text-2xl font-bold text-center py-6'>Total Products: {pens?.length}</h2>
-            <div className='flex flex-col md:flex-row justify-center items-center gap-5 mb-6'>
+            <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 space-y-2 lg:space-y-0 mb-6 text-center'>
                 {/* brand */}
                 <div>
                     <select
@@ -89,7 +79,7 @@ const Products = () => {
                         value={category}
                         className='border p-4 rounded-lg'
                     >
-                        <option value=''>Filter By category</option>
+                        <option value=''>Filter By Category</option>
                         <option value='Luxury'>Luxury</option>
                         <option value='High'>High</option>
                         <option value='Medium'>Medium</option>
@@ -107,7 +97,7 @@ const Products = () => {
                         value={price}
                         className='border p-4 rounded-lg'
                     >
-                        <option value=''>Filter By price</option>
+                        <option value=''>Filter By Price</option>
                         <option value='0-100'>$ 0 - $ 100</option>
                         <option value='100-200'>$ 100 - $ 200</option>
                         <option value='200-300'>$ 200 - $ 300</option>
@@ -149,9 +139,9 @@ const Products = () => {
                 </div>
 
                 {/* search */}
-                <div className="space-x-3">
+                <div>
                     <input value={search}
-                        onChange={(e) => setSearch(e.target.value)} type="text" placeholder="search by name" className="border p-4 rounded-md" required />
+                        onChange={(e) => setSearch(e.target.value)} type="text" placeholder="Search by Name" className="border p-4 rounded-md input-md" required />
                 </div>
             </div>
 

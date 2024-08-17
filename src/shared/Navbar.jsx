@@ -7,11 +7,11 @@ const Navbar = () => {
 
     const navItems = <>
         <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/about'>About</NavLink></li>
+        <li><NavLink to='/all_products'>All Products</NavLink></li>
     </>
     return (
         <div>
-            <div className="navbar bg-base-300 py-3">
+            <div className="navbar bg-base-200 py-3">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
