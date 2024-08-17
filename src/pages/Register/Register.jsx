@@ -39,8 +39,8 @@ const Register = () => {
     const handleSignUp = async (e) => {
         e.preventDefault();
         const form = e.target;
-        const email = form.email.value;
         const name = form.name.value;
+        const email = form.email.value;
         const pass = form.pass.value;
         console.log({ email, name, pass });
         try {
@@ -67,7 +67,7 @@ const Register = () => {
                         </p>
                     </div>
                     <div className="card bg-base-100 w-full max-w-lg shrink-0 shadow-2xl">
-                        <form className="card-body">
+                        <form onSubmit={handleSignUp} className="card-body">
                             <div onClick={handleGoogleSignIn} className='flex cursor-pointer items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg   hover:bg-gray-50 '>
                                 <div className='px-4 py-2'>
                                     <BsGoogle />
@@ -107,7 +107,7 @@ const Register = () => {
                                 <input name='pass' type="password" placeholder="password" className="input input-bordered" required />
                             </div>
                             <div className="form-control mt-6">
-                                <button onClick={handleSignUp} className="btn btn-primary">Register</button>
+                                <button className="btn btn-primary">Register</button>
                             </div>
                         </form>
                     </div>

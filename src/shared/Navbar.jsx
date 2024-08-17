@@ -42,9 +42,13 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end gap-3">
-                    <Link to={'/register'} className="btn btn-primary">Register</Link>
-                    <Link to={'/login'} className="btn btn-primary">Login</Link>
-                    <Link onClick={logOut} className="btn btn-primary">Log Out</Link>
+                    {
+                        !user && <><Link to={'/register'} className="btn btn-primary">Register</Link>
+                            <Link to={'/login'} className="btn btn-primary">Login</Link></>
+                    }
+                    {
+                        user && <Link onClick={logOut} className="btn btn-primary">Log Out</Link>
+                    }
                 </div>
             </div>
         </div>
