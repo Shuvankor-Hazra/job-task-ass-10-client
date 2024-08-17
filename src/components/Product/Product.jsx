@@ -10,9 +10,9 @@ const Product = ({ pen }) => {
                 </figure>
                 <div className="flex flex-col gap-2">
                     <h2 className="text-2xl font-bold mt-3">{name}</h2>
-                    <h2 className="text-xl font-bold">Brand: {brand}</h2>
                     <p className='min-h-8'>{desc}</p>
                     <div className='font-semibold'>
+                        <p>Brand: {brand}</p>
                         <p>Price: $ {price}</p>
                         <p>Category: {category}</p>
                         <p>Ratings: {ratings}</p>

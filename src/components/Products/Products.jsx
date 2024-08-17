@@ -15,18 +15,18 @@ const Products = () => {
     const { data: pens, isLoading } = useQuery({
         queryKey: ['pens'],
         queryFn: async () => {
-            const res = await axiosCommon.get('/pens')
+            const res = await axiosCommon.get(`/pens?page=${currentPage}&size=${itemsPerPage}&filter=${filter}&sort=${sort}`)
             return res.data;
         }
     })
 
-    useEffect(() => {
-        getData();
-    }, [currentPage, filter, itemsPerPage, sort])
-    const getData = async () => {
-        const { data } = await axiosCommon.get(`/all-pens?page=${currentPage}&size=${itemsPerPage}&filter=${filter}&sort=${sort}`)
-        setBooks(data);
-    }
+    // useEffect(() => {
+    //     getData();
+    // }, [currentPage, filter, itemsPerPage, sort])
+    // const getData = async () => {
+    //     const { data } = await axiosCommon.get(`/all-pens?page=${currentPage}&size=${itemsPerPage}&filter=${filter}&sort=${sort}`)
+    //     setBooks(data);
+    // }
 
     useEffect(() => {
         const getCount = async () => {

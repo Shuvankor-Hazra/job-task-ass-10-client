@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+
     const navItems = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/about'>About</NavLink></li>
@@ -41,6 +44,7 @@ const Navbar = () => {
                 <div className="navbar-end gap-3">
                     <Link to={'/register'} className="btn btn-primary">Register</Link>
                     <Link to={'/login'} className="btn btn-primary">Login</Link>
+                    <Link onClick={logOut} className="btn btn-primary">Log Out</Link>
                 </div>
             </div>
         </div>
