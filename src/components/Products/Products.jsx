@@ -50,6 +50,7 @@ const Products = () => {
             <h2 className='text-2xl font-bold text-center py-6'>Total Products: {pens?.length}</h2>
 
             <div className='flex flex-col md:flex-row justify-center items-center gap-5 mb-6'>
+                {/* filter */}
                 <div>
                     <select
                         onChange={e => {
@@ -62,12 +63,14 @@ const Products = () => {
                         className='border p-4 rounded-lg'
                     >
                         <option value=''>Filter By Category</option>
-                        <option value='Novel'>Novel</option>
-                        <option value='Thriller'>Thriller</option>
-                        <option value='History'>History</option>
-                        <option value='Sci-Fi'>Sci-Fi</option>
+                        <option value='Luxury'>Luxury</option>
+                        <option value='High'>High</option>
+                        <option value='Medium'>Medium</option>
+                        <option value='Low'>Low</option>
                     </select>
                 </div>
+
+                {/* sort */}
                 <div>
                     <select
                         onChange={e => {
@@ -79,10 +82,16 @@ const Products = () => {
                         id='sort'
                         className='border p-4 rounded-md'
                     >
-                        <option value=''>Sort by Rating</option>
-                        <option value='descending'>Descending Order</option>
+                        <option value=''>Sort by Creation Date & Time</option>
                         <option value='ascending'>Ascending Order</option>
+                        <option value='descending'>Descending Order</option>
                     </select>
+                </div>
+
+                {/* search */}
+                <div className="">
+                    <input type="text" placeholder="search" className="border p-4 rounded-md" required />
+                    <button className='btn btn-primary'>Search</button>
                 </div>
             </div>
 
