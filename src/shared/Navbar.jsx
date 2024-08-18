@@ -6,8 +6,8 @@ const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
 
     const navItems = <>
-        <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/all_products'>All Products</NavLink></li>
+        <li className='px-4 font-semibold hover:text-blue-400'><NavLink to='/'>Home</NavLink></li>
+        <li className='px-4 font-semibold hover:text-blue-400'><NavLink to='/all_products'>All Products</NavLink></li>
     </>
     return (
         <div>
@@ -34,10 +34,10 @@ const Navbar = () => {
                             {navItems}
                         </ul>
                     </div>
-                    <Link to={'/'} className="lg:text-2xl font-bold py-2 px-4 bg-white rounded-xl border-2 border-primary">Luxury-Pen</Link>
+                    <Link to={'/'} className="lg:text-2xl font-bold py-2 px-6 bg-primary rounded-xl border-4 border-primary text-base-300">Luxury-Pen</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-2">
+                    <ul className="flex items-center px-2">
                         {navItems}
                     </ul>
                 </div>

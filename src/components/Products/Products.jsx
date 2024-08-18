@@ -58,7 +58,7 @@ const Products = () => {
         <>
             <div className='flex flex-col lg:flex-row items-center justify-around gap-6 text-2xl font-bold  py-6'>
                 <h2 className=''>Total Products: {data?.totalProducts}</h2>
-                <button onClick={handleResetButton} className='btn bg-primary text-white'>Reset</button>
+                <button onClick={handleResetButton} className='btn bg-primary text-base-300'>Reset</button>
                 <h2 className=''>Sorted Products: {data?.totalDocuments}</h2>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-3 space-y-2 md:space-y-0 mb-6 text-center'>
