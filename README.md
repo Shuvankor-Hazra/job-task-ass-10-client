@@ -40,11 +40,11 @@ This is the frontend part of the MERN E-commerce project, built using React.js, 
 
 - Create a .env file in the root directory with the following environment variables:
 
-- **Start the development server:** <npm start> or <yarn start>
+- **Start the development server:** npm start or yarn start
 
 ### Build for Production
 
-- **To create a production build of the project, run:** <npm run build>
+- **To create a production build of the project, run:** npm run build
 
 ## Contribution
 
