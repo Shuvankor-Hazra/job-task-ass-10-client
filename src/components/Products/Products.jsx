@@ -56,11 +56,12 @@ const Products = () => {
 
     return (
         <>
-            <div className='text-2xl font-bold text-center py-6'>
+            <div className='flex flex-col lg:flex-row items-center justify-around gap-6 text-2xl font-bold  py-6'>
                 <h2 className=''>Total Products: {data?.totalProducts}</h2>
-                <h2 className='font-semibold'>Sorted Products: {data?.totalDocuments}</h2>
+                <button onClick={handleResetButton} className='btn bg-primary text-white'>Reset</button>
+                <h2 className=''>Sorted Products: {data?.totalDocuments}</h2>
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 space-y-2 lg:space-y-0 mb-6 text-center'>
+            <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-3 space-y-2 md:space-y-0 mb-6 text-center'>
                 {/* brand */}
                 <div>
                     <select
@@ -69,9 +70,9 @@ const Products = () => {
                             setCurrentPage(1)
                         }}
                         value={brand}
-                        className='border p-4 rounded-lg'
+                        className='border p-4 rounded-lg w-full'
                     >
-                        <option value=''>Filter By Brand</option>
+                        <option value=''>Filter by Brand</option>
                         <option value='TechMark'>TechMark</option>
                         <option value='EliteTech'>EliteTech</option>
                         <option value='MajestyMobile'>MajestyMobile</option>
@@ -87,9 +88,9 @@ const Products = () => {
                             setCurrentPage(1)
                         }}
                         value={category}
-                        className='border p-4 rounded-lg'
+                        className='border p-4 rounded-lg w-full'
                     >
-                        <option value=''>Filter By Category</option>
+                        <option value=''>Filter by Category</option>
                         <option value='Luxury'>Luxury</option>
                         <option value='High'>High</option>
                         <option value='Medium'>Medium</option>
@@ -105,9 +106,9 @@ const Products = () => {
                             setCurrentPage(1)
                         }}
                         value={price}
-                        className='border p-4 rounded-lg'
+                        className='border p-4 rounded-lg w-full'
                     >
-                        <option value=''>Filter By Price</option>
+                        <option value=''>Filter by Price</option>
                         <option value='0-100'>$ 0 - $ 100</option>
                         <option value='100-200'>$ 100 - $ 200</option>
                         <option value='200-300'>$ 200 - $ 300</option>
@@ -124,7 +125,7 @@ const Products = () => {
                             setCurrentPage(1)
                         }}
                         value={date}
-                        className='border p-4 rounded-md'
+                        className='border p-4 rounded-md w-full'
                     >
                         <option value=''>Sort by Date</option>
                         <option value='ascending'>Ascending Date</option>
@@ -140,22 +141,19 @@ const Products = () => {
                             setCurrentPage(1)
                         }}
                         value={sortPrice}
-                        className='border p-4 rounded-md'
+                        className='border p-4 rounded-md w-full'
                     >
                         <option value=''>Sort by Price</option>
-                        <option value='ascending'>Ascending Price</option>
-                        <option value='descending'>Descending Price</option>
+                        <option value='ascending'>Low to High</option>
+                        <option value='descending'>High to Low</option>
                     </select>
                 </div>
 
                 {/* search */}
                 <div>
                     <input value={search}
-                        onChange={(e) => setSearch(e.target.value)} type="text" placeholder="Search by Name" className="border p-4 rounded-md input-md" required />
+                        onChange={(e) => setSearch(e.target.value)} type="text" placeholder="Search by Name" className="border p-4 rounded-md w-full" required />
                 </div>
-            </div>
-            <div className='flex items-center justify-center mb-6 '>
-                <button onClick={handleResetButton} className='btn bg-primary text-white'>Reset</button>
             </div>
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>

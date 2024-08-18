@@ -4,9 +4,9 @@ const Product = ({ pen }) => {
     const { name, brand, image, desc, price, category, ratings, creation_date_time } = pen;
     return (
         <>
-            <div className="card bg-base-300 border-2 min-h-[600px] p-6 abcd">
+            <div className="card bg-base-300 border-2 min-h-[600px] p-6 hover:scale-[1.05] transition-all">
                 <figure>
-                    <img className='w-full hover:scale-110 transition-all' src={image} />
+                    <img className='w-full hover:scale-125 transition-all' src={image} />
                 </figure>
                 <div className="flex flex-col gap-2">
                     <h2 className="text-2xl font-bold mt-3">{name}</h2>
