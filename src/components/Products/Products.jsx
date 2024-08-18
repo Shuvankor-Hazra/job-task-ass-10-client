@@ -16,7 +16,7 @@ const Products = () => {
     const [sortPrice, setSortPrice] = useState('');
     const [search, setSearch] = useState('');
 
-    const { data } = useQuery({
+    const { data, isLoading } = useQuery({
         queryKey: ['pens', size, currentPage, brand, category, price, date, sortPrice, search],
         queryFn: async () => {
             const res = await axiosCommon.get(`/all_pens`, {
@@ -34,6 +34,10 @@ const Products = () => {
             return res.data;
         }
     })
+
+    if (isLoading) {
+        <div>Loading...</div>
+    }
 
 
     const pens = data?.pens || [];
@@ -53,6 +57,8 @@ const Products = () => {
         setSortPrice('');
         setSearch('');
     }
+
+
 
     return (
         <>
@@ -152,7 +158,10 @@ const Products = () => {
                 {/* search */}
                 <div>
                     <input value={search}
-                        onChange={(e) => setSearch(e.target.value)} type="text" placeholder="Search by Name" className="border p-4 rounded-md w-full" required />
+                        onChange={(e) => {
+                            setSearch(e.target.value)
+                            setCurrentPage(1)
+                        }} type="text" placeholder="Search by Name" className="border p-4 rounded-md w-full" required />
                 </div>
             </div>
 

@@ -34,7 +34,7 @@ const Navbar = () => {
                             {navItems}
                         </ul>
                     </div>
-                    <Link to={'/'} className="lg:text-2xl font-bold py-2 px-6 bg-primary rounded-xl border-4 border-primary text-base-300">Luxury-Pen</Link>
+                    <Link to={'/'} className="lg:text-2xl font-bold py-2 px-3 bg-primary rounded-xl text-base-300">Luxury-Pen</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="flex items-center px-2">
