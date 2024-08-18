@@ -19,7 +19,7 @@ const Products = () => {
     const { data } = useQuery({
         queryKey: ['pens', size, currentPage, brand, category, price, date, sortPrice, search],
         queryFn: async () => {
-            const res = await axiosCommon.get(`/pens`, {
+            const res = await axiosCommon.get(`/all_pens`, {
                 params: {
                     size,
                     page: currentPage,
@@ -45,9 +45,21 @@ const Products = () => {
         setCurrentPage(value);
     }
 
+    const handleResetButton = () => {
+        setBrand('');
+        setCategory('');
+        setPrice('');
+        setDate('');
+        setSortPrice('');
+        setSearch('');
+    }
+
     return (
         <>
-            <h2 className='text-2xl font-bold text-center py-6'>Total Products: {pens?.length}</h2>
+            <div className='text-2xl font-bold text-center py-6'>
+                <h2 className=''>Total Products: {data?.totalProducts}</h2>
+                <h2 className='font-semibold'>Sorted Products: {data?.totalDocuments}</h2>
+            </div>
             <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 space-y-2 lg:space-y-0 mb-6 text-center'>
                 {/* brand */}
                 <div>
@@ -115,8 +127,8 @@ const Products = () => {
                         className='border p-4 rounded-md'
                     >
                         <option value=''>Sort by Date</option>
-                        <option value='ascending'>Ascending Order</option>
-                        <option value='descending'>Descending Order</option>
+                        <option value='ascending'>Ascending Date</option>
+                        <option value='descending'>Descending Date</option>
                     </select>
                 </div>
 
@@ -131,8 +143,8 @@ const Products = () => {
                         className='border p-4 rounded-md'
                     >
                         <option value=''>Sort by Price</option>
-                        <option value='ascending'>Ascending Order</option>
-                        <option value='descending'>Descending Order</option>
+                        <option value='ascending'>Ascending Price</option>
+                        <option value='descending'>Descending Price</option>
                     </select>
                 </div>
 
@@ -141,6 +153,9 @@ const Products = () => {
                     <input value={search}
                         onChange={(e) => setSearch(e.target.value)} type="text" placeholder="Search by Name" className="border p-4 rounded-md input-md" required />
                 </div>
+            </div>
+            <div className='flex items-center justify-center mb-6 '>
+                <button onClick={handleResetButton} className='btn bg-primary text-white'>Reset</button>
             </div>
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
