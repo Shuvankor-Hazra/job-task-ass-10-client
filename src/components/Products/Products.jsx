@@ -9,8 +9,6 @@ const Products = () => {
 
     const [size] = useState(6);
     const [currentPage, setCurrentPage] = useState(1)
-    // const [count, setCount] = useState(40);
-    // const [filter, setFilter] = useState('');
     const [brand, setBrand] = useState('');
     const [category, setCategory] = useState('');
     const [price, setPrice] = useState('');
